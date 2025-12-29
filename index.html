@@ -4,221 +4,175 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>DJ Beracuda</title>
-  <style>
-    :root{
-      --bg: #0b0b0b;
-      --text: #ffffff;
-      --muted: rgba(255,255,255,0.82);
-      --muted2: rgba(255,255,255,0.70);
-      --card: rgba(255,255,255,0.06);
-      --cardBorder: rgba(255,255,255,0.10);
-      --max: 980px;
-    }
 
-    * { box-sizing: border-box; }
+  <style>
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       color: #111;
-      background: #fff;
+      line-height: 1.6;
     }
 
     /* HERO */
     header {
-      min-height: 52vh;
-      display: grid;
-      place-items: center;
+      position: relative;
+      min-height: 80vh; /* taller hero so more of you shows */
+      background: 
+        linear-gradient(
+          rgba(0, 0, 0, 0.55),
+          rgba(0, 0, 0, 0.55)
+        ),
+        url("assets/dj.jpg") center / cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       text-align: center;
-      padding: 72px 20px;
-      color: var(--text);
-      background:
-        linear-gradient(180deg, rgba(0,0,0,0.72), rgba(0,0,0,0.72)),
-        url("assets/dj.jpg") center/cover no-repeat,
-        var(--bg);
+      color: #fff;
+      padding: 2rem;
     }
 
-    .hero {
-      width: 100%;
-      max-width: var(--max);
-      margin: 0 auto;
+    .hero-content {
+      max-width: 900px;
     }
 
-    .brandRow{
-      display: inline-flex;
+    .brand-row {
+      display: flex;
       align-items: center;
       justify-content: center;
       gap: 14px;
-      margin-bottom: 10px;
+      flex-wrap: wrap;
     }
 
-    .brandLogo{
-      width: 44px;
-      height: 44px;
-      object-fit: contain;
-      border-radius: 10px;
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.12);
-      padding: 6px;
+    .brand-row img {
+      height: 56px; /* visually balanced with DJ Beracuda text */
+      width: auto;
     }
 
-    .headline{
-      margin: 0;
-      line-height: 1.06;
-      letter-spacing: -0.7px;
+    h1 {
+      font-size: clamp(2.5rem, 5vw, 3.5rem);
       font-weight: 700;
-      display: inline-block;
+      margin: 0;
+      letter-spacing: -0.5px;
     }
 
-    .headline .name{
-      font-size: clamp(44px, 5.5vw, 64px);
-      font-weight: 900;
-      letter-spacing: -1.2px;
-      text-shadow: 0 8px 28px rgba(0,0,0,0.55);
+    .divider {
+      margin: 0 6px;
+      opacity: 0.6;
     }
 
-    .headline .divider{
-      opacity: 0.5;
-      padding: 0 10px;
+    .subtitle {
+      font-size: 1.1rem;
       font-weight: 400;
+      opacity: 0.9;
+      margin-top: 0.4rem;
     }
 
-    .headline .role{
-      font-size: clamp(20px, 2.4vw, 28px);
-      font-weight: 600;
-      opacity: 0.92;
-      letter-spacing: -0.3px;
-    }
-
-    .tagline{
-      margin: 14px 0 0 0;
-      font-size: 16px;
-      color: var(--muted);
+    .tagline {
+      margin-top: 1.2rem;
+      font-size: 1rem;
+      letter-spacing: 0.08em;
       text-transform: lowercase;
-      letter-spacing: 0.2px;
+      opacity: 0.85;
     }
 
-    /* MAIN */
-    main {
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 50px 20px 60px;
+    /* CONTENT SECTIONS */
+    section {
+      max-width: 900px;
+      margin: 3.5rem auto; /* tighter vertical spacing */
+      padding: 0 1.5rem;
     }
-
-    section { margin-bottom: 46px; }
 
     h2 {
-      margin: 0 0 12px 0;
-      font-size: 26px;
+      font-size: 1.6rem;
+      margin-bottom: 0.75rem;
     }
 
-    p { line-height: 1.6; margin: 0; }
+    ul {
+      padding-left: 1.2rem;
+    }
 
-    ul.services {
-      margin: 0;
-      padding-left: 18px;
-      line-height: 1.8;
+    li {
+      margin-bottom: 0.5rem;
     }
 
     /* CONTACT */
-    .contactCard{
-      background: #f4f4f4;
-      border: 1px solid #e6e6e6;
-      padding: 18px;
-      border-radius: 6px;
-      max-width: 520px;
+    .contact {
+      background: #f3f3f3;
+      padding: 3rem 1.5rem;
     }
 
-    .contactCard p{
-      margin-bottom: 12px;
-      color: #222;
+    .contact form {
+      max-width: 500px;
+      margin: 0 auto;
     }
 
-    form input, form textarea{
+    input, textarea {
       width: 100%;
-      padding: 10px;
-      margin: 8px 0;
-      border: 1px solid #cfcfcf;
+      padding: 0.6rem;
+      margin-bottom: 0.75rem;
+      font-size: 1rem;
+      border: 1px solid #ccc;
       border-radius: 3px;
-      font-size: 14px;
-      font-family: inherit;
     }
 
-    form textarea{ min-height: 110px; resize: vertical; }
-
-    form button{
+    button {
       width: 100%;
-      padding: 10px;
-      background: #111;
+      padding: 0.75rem;
+      background: #000;
       color: #fff;
       border: none;
-      border-radius: 3px;
+      font-size: 1rem;
       cursor: pointer;
-      font-size: 14px;
     }
-    form button:hover{ opacity: 0.92; }
 
-    /* RESPONSIVE */
-    @media (max-width: 640px){
-      .brandRow{ gap: 10px; }
-      .brandLogo{ width: 40px; height: 40px; }
-      .headline .divider{ padding: 0 8px; }
+    button:hover {
+      opacity: 0.9;
     }
   </style>
 </head>
 
 <body>
+
   <header>
-    <div class="hero">
-      <div class="brandRow">
-        <img class="brandLogo" src="assets/logo.png" alt="DJ Beracuda logo" />
+    <div class="hero-content">
+      <div class="brand-row">
+        <img src="assets/logo.png" alt="DJ Beracuda logo" />
+        <h1>DJ Beracuda</h1>
+        <span class="divider">|</span>
+        <span class="subtitle">Wedding and Event DJ</span>
       </div>
 
-      <h1 class="headline">
-        <span class="name">DJ Beracuda</span>
-        <span class="divider">|</span>
-        <span class="role">Wedding and Event DJ</span>
-      </h1>
-
-      <p class="tagline">atmosphere, flow, and emotional intelligence</p>
+      <div class="tagline">
+        atmosphere, flow, and emotional intelligence
+      </div>
     </div>
   </header>
 
-  <main>
-    <section>
-      <h2>About</h2>
-      <p>
-        I’m an empath who genuinely loves love. My strength as a DJ is reading the room,
-        knowing my clients like a friend of my own, and creating a tailored mix that supports
-        the energy, flow, and emotion of your event. Every set is built intentionally,
-        not pre-programmed. More than just the cha-cha slide (unless, that’s what you’re in to).
-      </p>
-    </section>
+  <section>
+    <h2>About</h2>
+    <p>
+      I’m an empath who genuinely loves love. My strength as a DJ is reading the room,
+      knowing my clients like a friend of my own, and creating a tailored mix that
+      supports the energy, flow, and emotion of your event. Every set is built
+      intentionally, not pre-programmed. More than just the cha-cha slide (unless,
+      that’s what you’re into).
+    </p>
+  </section>
 
-    <section>
-      <h2>Services</h2>
-      <ul class="services">
-        <li>Weddings (Ceremony, Cocktail Hour, Reception)</li>
-        <li>Fashion Shows &amp; Runway Events</li>
-        <li>Private &amp; Creative Events</li>
-        <li>Professional MC &amp; Event Flow</li>
-      </ul>
-    </section>
+  <section>
+    <h2>Services</h2>
+    <ul>
+      <li>Weddings (Ceremony, Cocktail Hour, Reception)</li>
+      <li>Fashion Shows & Runway Events</li>
+      <li>Private & Creative Events</li>
+      <li>Professional MC & Event Flow</li>
+    </ul>
+  </section>
 
-    <section class="contact">
-      <h2>Contact</h2>
-      <div class="contactCard">
-        <p>Reach out to check availability or start planning your event.</p>
+  <section class="contact">
+    <h2>Contact</h2>
+    <p>Reach out to check availability or start planning your event.</p>
 
-        <!-- Replace the action URL with your Formspree endpoint -->
-        <form action="https://formspree.io/f/yourformid" method="POST">
-          <input type="text" name="name" placeholder="Your name" required />
-          <input type="email" name="email" placeholder="Your email" required />
-          <input type="text" name="date" placeholder="Event date" />
-          <textarea name="message" placeholder="Tell me about your event"></textarea>
-          <button type="submit">Send Message</button>
-        </form>
-      </div>
-    </section>
-  </main>
-</body>
-</html>
+    <form action="https://formspree.io/f/yourformid" method="POST">
+      <input type="text" name="name" placeholder="Your name" required />
+      <input type="email" nam
