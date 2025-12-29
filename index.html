@@ -3,142 +3,222 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DJ Beracuda | Wedding & Event DJ</title>
+  <title>DJ Beracuda</title>
   <style>
+    :root{
+      --bg: #0b0b0b;
+      --text: #ffffff;
+      --muted: rgba(255,255,255,0.82);
+      --muted2: rgba(255,255,255,0.70);
+      --card: rgba(255,255,255,0.06);
+      --cardBorder: rgba(255,255,255,0.10);
+      --max: 980px;
+    }
+
+    * { box-sizing: border-box; }
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       margin: 0;
-      padding: 0;
-      line-height: 1.6;
-      background: #fafafa;
-      color: #222;
+      font-family: Arial, sans-serif;
+      color: #111;
+      background: #fff;
     }
+
+    /* HERO */
     header {
-   .brand{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:14px;
-  margin-bottom:10px;
-}
-
-.brand-logo{
-  width:46px;
-  height:46px;
-  object-fit:contain;
-  border-radius:10px; /* optional, looks clean */
-}
-
-.brand-text{
-  text-align:left;
-  line-height:1.05;
-}
-
-.brand-name{
-  font-size:44px;
-  font-weight:800;
-  letter-spacing:-0.5px;
-}
-
-.brand-role{
-  margin-top:6px;
-  font-size:18px;
-  font-weight:500;
-  opacity:0.85;
-}
-
-.tagline{
-  margin-top:10px;
-  font-size:16px;
-  opacity:0.9;
-}
-
+      min-height: 52vh;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 72px 20px;
+      color: var(--text);
+      background:
+        linear-gradient(180deg, rgba(0,0,0,0.72), rgba(0,0,0,0.72)),
+        url("assets/dj.jpg") center/cover no-repeat,
+        var(--bg);
     }
-    section {
-      max-width: 900px;
-      margin: auto;
-      padding: 60px 20px;
+
+    .hero {
+      width: 100%;
+      max-width: var(--max);
+      margin: 0 auto;
     }
-    h1, h2 {
-      font-weight: 500;
-    }
-    .services li {
+
+    .brandRow{
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
       margin-bottom: 10px;
     }
-    .contact {
-      background: #eee;
-      padding: 40px 20px;
-      border-radius: 6px;
+
+    .brandLogo{
+      width: 44px;
+      height: 44px;
+      object-fit: contain;
+      border-radius: 10px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      padding: 6px;
     }
-    footer {
-      text-align: center;
-      padding: 30px;
-      font-size: 14px;
-      color: #777;
+
+    .headline{
+      margin: 0;
+      line-height: 1.06;
+      letter-spacing: -0.7px;
+      font-weight: 700;
+      display: inline-block;
     }
-    input, textarea, button {
-      width: 100%;
-      padding: 12px;
-      margin-top: 10px;
+
+    .headline .name{
+      font-size: clamp(44px, 5.5vw, 64px);
+      font-weight: 900;
+      letter-spacing: -1.2px;
+      text-shadow: 0 8px 28px rgba(0,0,0,0.55);
+    }
+
+    .headline .divider{
+      opacity: 0.5;
+      padding: 0 10px;
+      font-weight: 400;
+    }
+
+    .headline .role{
+      font-size: clamp(20px, 2.4vw, 28px);
+      font-weight: 600;
+      opacity: 0.92;
+      letter-spacing: -0.3px;
+    }
+
+    .tagline{
+      margin: 14px 0 0 0;
       font-size: 16px;
+      color: var(--muted);
+      text-transform: lowercase;
+      letter-spacing: 0.2px;
     }
-    button {
+
+    /* MAIN */
+    main {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 50px 20px 60px;
+    }
+
+    section { margin-bottom: 46px; }
+
+    h2 {
+      margin: 0 0 12px 0;
+      font-size: 26px;
+    }
+
+    p { line-height: 1.6; margin: 0; }
+
+    ul.services {
+      margin: 0;
+      padding-left: 18px;
+      line-height: 1.8;
+    }
+
+    /* CONTACT */
+    .contactCard{
+      background: #f4f4f4;
+      border: 1px solid #e6e6e6;
+      padding: 18px;
+      border-radius: 6px;
+      max-width: 520px;
+    }
+
+    .contactCard p{
+      margin-bottom: 12px;
+      color: #222;
+    }
+
+    form input, form textarea{
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border: 1px solid #cfcfcf;
+      border-radius: 3px;
+      font-size: 14px;
+      font-family: inherit;
+    }
+
+    form textarea{ min-height: 110px; resize: vertical; }
+
+    form button{
+      width: 100%;
+      padding: 10px;
       background: #111;
-      color: white;
+      color: #fff;
       border: none;
+      border-radius: 3px;
       cursor: pointer;
+      font-size: 14px;
+    }
+    form button:hover{ opacity: 0.92; }
+
+    /* RESPONSIVE */
+    @media (max-width: 640px){
+      .brandRow{ gap: 10px; }
+      .brandLogo{ width: 40px; height: 40px; }
+      .headline .divider{ padding: 0 8px; }
     }
   </style>
 </head>
+
 <body>
+  <header>
+    <div class="hero">
+      <div class="brandRow">
+        <img class="brandLogo" src="assets/logo.png" alt="DJ Beracuda logo" />
+      </div>
 
-<header>
-  <div class="brand">
-    <img src="assets/logo.png" alt="DJ Beracuda logo" class="brand-logo" />
-    <div class="brand-text">
-      <div class="brand-name">DJ Beracuda</div>
-      <div class="brand-role">Wedding and Event DJ</div>
+      <h1 class="headline">
+        <span class="name">DJ Beracuda</span>
+        <span class="divider">|</span>
+        <span class="role">Wedding and Event DJ</span>
+      </h1>
+
+      <p class="tagline">atmosphere, flow, and emotional intelligence</p>
     </div>
-  </div>
+  </header>
 
-  <p class="tagline">atmosphere, flow, and emotional intelligence</p>
-</header>
+  <main>
+    <section>
+      <h2>About</h2>
+      <p>
+        I’m an empath who genuinely loves love. My strength as a DJ is reading the room,
+        knowing my clients like a friend of my own, and creating a tailored mix that supports
+        the energy, flow, and emotion of your event. Every set is built intentionally,
+        not pre-programmed. More than just the cha-cha slide (unless, that’s what you’re in to).
+      </p>
+    </section>
 
-<section>
-  <h2>About</h2>
-  <p>
-    I’m an empath who genuinely loves love. My strength as a DJ is reading the
-    room, knowing my clients like a friend of my own, and creating a tailored mix that supports the energy, flow, and emotion
-    of your event. Every set is built intentionally, not pre-programmed. More than just the cha-cha slide (unless, that's what you're in to).
-  </p>
-</section>
+    <section>
+      <h2>Services</h2>
+      <ul class="services">
+        <li>Weddings (Ceremony, Cocktail Hour, Reception)</li>
+        <li>Fashion Shows &amp; Runway Events</li>
+        <li>Private &amp; Creative Events</li>
+        <li>Professional MC &amp; Event Flow</li>
+      </ul>
+    </section>
 
-<section>
-  <h2>Services</h2>
-  <ul class="services">
-    <li>Weddings (Ceremony, Cocktail Hour, Reception)</li>
-    <li>Fashion Shows & Runway Events</li>
-    <li>Private & Creative Events</li>
-    <li>Professional MC & Event Flow</li>
-  </ul>
-</section>
+    <section class="contact">
+      <h2>Contact</h2>
+      <div class="contactCard">
+        <p>Reach out to check availability or start planning your event.</p>
 
-<section class="contact">
-  <h2>Contact</h2>
-  <p>Reach out to check availability or start planning your event.</p>
-
-  <form action="https://formspree.io/f/yourformid" method="POST">
-    <input type="text" name="name" placeholder="Your name" required />
-    <input type="email" name="email" placeholder="Your email" required />
-    <input type="text" name="date" placeholder="Event date" />
-    <textarea name="message" placeholder="Tell me about your event" required></textarea>
-    <button type="submit">Send Message</button>
-  </form>
-</section>
-
-<footer>
-  © DJ Beracuda
-</footer>
-
+        <!-- Replace the action URL with your Formspree endpoint -->
+        <form action="https://formspree.io/f/yourformid" method="POST">
+          <input type="text" name="name" placeholder="Your name" required />
+          <input type="email" name="email" placeholder="Your email" required />
+          <input type="text" name="date" placeholder="Event date" />
+          <textarea name="message" placeholder="Tell me about your event"></textarea>
+          <button type="submit">Send Message</button>
+        </form>
+      </div>
+    </section>
+  </main>
 </body>
 </html>
